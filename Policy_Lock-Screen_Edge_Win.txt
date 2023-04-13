@@ -1,0 +1,15 @@
+DELAY 1000
+GUI r
+DELAY 500
+# Add a company policy page here:
+STRING microsoft-edge:https://www.cnet.com/tech/computing/4-ways-to-lock-your-windows-10-pc/
+SPACE
+ENTER
+DELAY 2000
+CTRL f
+DELAY 500
+# And search for specific text:
+STRING 4 ways to lock your Windows 10 PC
+ENTER
+DELAY 1000
+GUI l

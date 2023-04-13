@@ -1,0 +1,13 @@
+DELAY 1000
+GUI r
+DELAY 500
+STRING microsoft-edge:https://eyelockmyscreen.com
+SPACE
+ENTER
+DELAY 2000
+CTRL l
+DELAY 500
+STRING javascript:document.documentElement.requestFullscreen();
+ENTER
+DELAY 1000
+GUI l
