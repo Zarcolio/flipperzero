@@ -21,6 +21,15 @@ $easyNumbers = @(0..9) | ForEach-Object {
     }
 }
 
+# Define the list of year numbers
+$YearNumbers = @()
+
+# Loop through all years from 1901 to the current year
+for ($year = 1901; $year -le (Get-Date).Year; $year++) {
+    # Add the year to the array
+    $YearNumbers += $year
+}
+
 # Define the list of "easy" numbers consisting of all combinations under 100, twice
 $doubleUnder100 = @(0..99) | ForEach-Object {
     "{0:D2}{0:D2}" -f $_
@@ -38,7 +47,7 @@ $nonEasyNumbers = $combinations | Where-Object {
 $randomizedNonEasyNumbers = $nonEasyNumbers | Get-Random -Count $nonEasyNumbers.Count
 
 # Combine the easy, double under 100, and non-easy numbers and write to a file
-$allNumbers = $veryEasyNumbers + $adjacentEasyNumbers + $easyNumbers + $doubleUnder100
+$allNumbers = $veryEasyNumbers + $adjacentEasyNumbers + $YearNumbers + $easyNumbers + $doubleUnder100
 $randomizedNumbers = @()
 foreach ($number in $allNumbers) {
     if ($randomizedNumbers -notcontains $number) {
@@ -51,4 +60,7 @@ $randomizedNonEasyNumbers | ForEach-Object {
     }
 }
 
-$randomizedNumbers | Out-File -FilePath "C:\Users\pin_codes.txt"
+$scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$filePath = Join-Path -Path $scriptDir -ChildPath "pin_codes.txt"
+
+$randomizedNumbers | Out-File -FilePath $filePath
