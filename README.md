@@ -14,3 +14,4 @@ Ducky script:
 * Password-top100.txt - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
 * PinCodes-top1000.txt - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1.
 * Website-FF-Android.txt - Opens a website with Firefox (only works when Firefox hasn't been opened).
+* Website-Manual-Android.txt - Opens the default browser, then pauses. Manually select the address bar and hit the Run button.
