@@ -13,3 +13,4 @@ Ducky script:
 * Policy_Lock-Screen_Edge_Win.txt - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
 * Password-top100.txt - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
 * PinCodes-top1000.txt - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1.
+* Website-FF-Android.txt - Opens a website with Firefox (only works when Firefox hasn't been opened).
