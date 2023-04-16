@@ -1,6 +1,6 @@
 DELAY 500
 GUI b
 WAIT_FOR_BUTTON_PRESS
-STRING https://google.com
+STRING https://eyelockmyscreen.com/m
 DELAY 500
 ENTER
