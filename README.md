@@ -2,7 +2,7 @@
 Ducky script for Bad USB on the Flipper Zero
 PowerShell:
 
-* Create-PwdDictAttack.ps1 - Creates a Ducky script that can try a list of passwords, for example against the Windows logon screen. Delay and wait are configurable.
+* Create-PwdDictAttack.ps1 - Creates a Ducky script that tries a list of passwords, for example against the Windows logon screen. Delay and wait time/method are configurable.
 * Escape-DeadKeys.ps1 - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards.
 * Generate-PinCodes.ps1 - Generates 4 number pin codes, easy to remember pin codes first.
 
@@ -14,4 +14,4 @@ Ducky script:
 * Password-top100.txt - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
 * PinCodes-top1000.txt - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1.
 * Website-FF-Android.txt - Opens a website with Firefox (only works when Firefox hasn't been opened).
-* Website-Manual-Android.txt - Opens the default browser, then pauses. Manually select the address bar and hit the Run button.
+* Website-Manual-Android.txt - Opens the default browser, then pauses. Manually select the address bar and hit the Run button. An awareness message is displayed. 
