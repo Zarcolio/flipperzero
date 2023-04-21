@@ -12,6 +12,7 @@ Ducky script:
 * Show_wifi_passwords_Win_PS.txt - Awareness script. Found an unlocked Windows screen? Fire this one off to open a Powershell window and show the user their wifi passwords.
 * Policy_Lock-Screen_Edge_Win.txt - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
 * Password-top100.txt - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
-* PinCodes-top1000.txt - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1.
+* PinCodes-top1000-ButtonWait.txt - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits until the run button has been pressed after each pin code.
+* PinCodes-top1000-Delay2000.txt - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits 2 seconds after each pin code.
 * Website-FF-Android.txt - Opens a website with Firefox (only works when Firefox hasn't been opened).
 * Website-Manual-Android.txt - Opens the default browser, then pauses. Manually select the address bar and hit the Run button. An awareness message is displayed. 
