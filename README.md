@@ -8,6 +8,7 @@ PowerShell:
 
 Ducky script:
 
+* Exfill-Wifi-Pwd-Win10.txt - Steals wifi passwords (uptil win10, win11 needs admin for all passwords), exfills it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
 * EyeLock_Edge_Win.txt - Awareness script. Found an unlocked Windows screen? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
 * Show_wifi_passwords_Win_PS.txt - Awareness script. Found an unlocked Windows screen? Fire this one off to open a Powershell window and show the user their wifi passwords.
 * Policy_Lock-Screen_Edge_Win.txt - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
