@@ -1,5 +1,6 @@
 # Duckyscript
 Ducky script for Bad USB on the Flipper Zero
+
 PowerShell:
 
 * Create-PwdDictAttack.ps1 - Creates a Ducky script that tries a list of passwords, for example against the Windows logon screen. Delay and wait time/method are configurable.
