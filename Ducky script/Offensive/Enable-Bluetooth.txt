@@ -1,0 +1,10 @@
+GUI R
+DELAY 500
+STRING %windir%\explorer.exe ms-settings:bluetooth
+ENTER
+DELAY 4000
+TAB
+DELAY 500
+SPACE
+DELAY 500
+ALT F4
