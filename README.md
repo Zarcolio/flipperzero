@@ -1,13 +1,14 @@
 # Duckyscript
 Ducky script for Bad USB on the Flipper Zero
 
-PowerShell:
+PowerShell/
 
 * Create-PwdDictAttack.ps1 - Creates a Ducky script that tries a list of passwords, for example against the Windows logon screen. Delay and wait time/method are configurable.
-* Escape-DeadKeys.ps1 - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards.
+* Escape-DeadKeysAltcode.ps1 - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (replaces STRING with ALTCODE if a dead key is detected).
+* Escape-DeadKeysRepeat.ps1 - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (each dead key is repeated).
 * Generate-PinCodes.ps1 - Generates 4 number pin codes, easy to remember pin codes first.
 
-Ducky script:
+Ducky script/
 
 * Exfill-Wifi-Pwd-Win10.txt - Steals wifi passwords (uptil win10, win11 needs admin for all passwords), exfills it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
 * EyeLock_Edge_Win.txt - Awareness script. Found an unlocked Windows screen? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
