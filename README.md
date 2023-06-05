@@ -12,6 +12,7 @@ Ducky script/
 * PinCodes-top10000-Delay2000.txt - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits 2 seconds after each pin code.
 * Website-FF-Android.txt - Opens a website with Firefox (only works when Firefox hasn't been opened).
 * Website-Manual-Android.txt - Opens the default browser, then pauses. Manually select the address bar and hit the Run button. An awareness message is displayed. 
+* ExeFromUsb.txt - Opens an executable from an USB drive you own.
 
 PowerShell/
 
@@ -19,3 +20,4 @@ PowerShell/
 * Escape-DeadKeysAltcode.ps1 - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (replaces STRING with ALTCODE if a dead key is detected).
 * Escape-DeadKeysRepeat.ps1 - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (each dead key is repeated).
 * Generate-PinCodes.ps1 - Generates 4 number pin codes, easy to remember pin codes first.
+* Convert-Ps2Ducky.ps1 - Converts a .ps1 file to a Ducky script.
