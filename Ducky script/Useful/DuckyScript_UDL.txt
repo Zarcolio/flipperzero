@@ -14,6 +14,7 @@ REM          '..'                  |_________| `--'  `"
 
 REM Want Ducky script as a User Defined Language in Notepad++?
 REM Use this Ducky script to do this automatically for you using curl (Windows 10 build 17063 or later).
+REM Credit for the UDL file go to UberGuidoZ @ https://raw.githubusercontent.com/UberGuidoZ
 
 DELAY 500
 GUI r
