@@ -12,8 +12,8 @@ Ducky script/
 * `Defensive`/`Policy_Lock-Screen_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
 * `Offensive`/`Exfill-Wifi-Pwd-Win10.txt` - Steals wifi passwords (uptil win10, win11 needs admin for all passwords), exfills it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
 * `Offensive`/`Password-top100.txt` - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1`.
-* `Offensive`/`PinCodes-top10000-ButtonWait.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1`. Waits until the run button has been pressed after each pin code.
-* `Offensive`/`PinCodes-top10000-Delay2000.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1`. Waits 2 seconds after each pin code.
+* `Offensive`/`PinCodes-top10000-ButtonWait.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits until the run button has been pressed after each pin code.
+* `Offensive`/`PinCodes-top10000-Delay2000.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits 2 seconds after each pin code.
 * `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you own.
 * `Useful`/`DuckyScript_UDL.txt` - Automatically installs User Defined Language in Notepad++ for Ducky Script.
 
