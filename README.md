@@ -5,7 +5,7 @@ Ducky script for Bad USB on the Flipper Zero
 
 Ducky script/
 
-* `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
+* `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen in your office? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
 * `Defensive`/`Show_wifi_passwords_Win_PS.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open a Powershell window and show the user their wifi passwords.
 * `Defensive`/`Website-FF-Android.txt` - Opens a website with Firefox (only works when Firefox hasn't been opened).
 * `Defensive`/`Website-Manual-Android.txt` - Opens the default browser, then pauses. Manually select the address bar and hit the Run button. An awareness message is displayed. 
