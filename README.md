@@ -14,7 +14,7 @@ Ducky script/
 * `Offensive`/`Password-top100.txt` - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
 * `Offensive`/`PinCodes-top10000-ButtonWait.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits until the run button has been pressed after each pin code.
 * `Offensive`/`PinCodes-top10000-Delay2000.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits 2 seconds after each pin code.
-* `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you own.
+* `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you bring along.
 * `Useful`/`DuckyScript_UDL.txt` - Automatically installs User Defined Language in Notepad++ for Ducky Script.
 
 PowerShell/
