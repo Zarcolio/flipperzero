@@ -15,10 +15,12 @@ Ducky script/
 * `Offensive`/`PinCodes-top10000-ButtonWait.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits until the run button has been pressed after each pin code.
 * `Offensive`/`PinCodes-top10000-Delay2000.txt` - 4 Number pin codes (easy to remember pin codes first) turned into a Ducky script by Create-PwdDictAttack.ps1. Waits 2 seconds after each pin code.
 * `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you bring along.
+* `Offensive`/`Cookie-Facebook-WinChrome.txt` - Opens facebook.com within Chrome browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
+* `Offensive`/`Cookie-Facebook-WinDefaultBrowser.txt` - Opens facebook.com within the default browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
+* `Offensive`/`Cookie-Facebook-WinEdge.txt` - Opens facebook.com within Edge browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
 * `Useful`/`DuckyScript_UDL.txt` - Automatically installs User Defined Language in Notepad++ for Ducky Script.
 
 PowerShell/
-
 * `Offensive`/`Create-PwdDictAttack.ps1` - Creates a Ducky script that tries a list of passwords, for example against the Windows logon screen. Delay and wait time/method are configurable.
 * `Offensive`/`Generate-PinCodes.ps1` - Generates 4 number pin codes, easy to remember pin codes first.
 * `Useful`/`Escape-DeadKeysAltcode.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (replaces STRING with ALTCODE if a dead key is detected).
