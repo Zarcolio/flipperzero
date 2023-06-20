@@ -12,8 +12,7 @@ REM |/\'..' /   / /                 /    /___ / /   | |_| |         `-.______ / 
 REM '  `'-'`|`-' /                 |         |\ \._,\ '/|_|                  `
 REM          '..'                  |_________| `--'  `"
 
-REM Opens facebook.com within the default browser and alerts the document.cookie for Facebook.
-REM use your imagination for offensive purposes.
+REM Opens the BeEF demo page within the default browser so you can see interesting information on the victim.
 
 DELAY 500
 GUI r
