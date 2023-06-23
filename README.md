@@ -3,7 +3,7 @@
 # Duckyscript
 Ducky script for Bad USB on the Flipper Zero
 
-Ducky script/
+__Ducky script/__
 
 * `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen in your office? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
 * `Defensive`/`Policy_Lock-Screen_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
@@ -22,7 +22,7 @@ Ducky script/
 * `Offensive`/`Samsung-LEDTV-UE40F6500.txt` - Change the DNS settings of your Samsung LED TV UE40F6500 (2013 model) to 1.1.1.1.
 * `Useful`/`DuckyScript_UDL.txt` - Automatically installs User Defined Language in Notepad++ for Ducky Script.
 
-PowerShell/
+__PowerShell/__
 * `Offensive`/`Create-PwdDictAttack.ps1` - Creates a Ducky script that tries a list of passwords, for example against the Windows logon screen. Delay and wait time/method are configurable.
 * `Offensive`/`Generate-PinCodes.ps1` - Generates 4 number pin codes, easy to remember pin codes first.
 * `Useful`/`Convert-Ps2Ducky.ps1` - Converts a .ps1 file to a Ducky script.
