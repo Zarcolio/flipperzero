@@ -69,6 +69,8 @@ DELAY 1000
 ENTER
 DELAY 1000
 
+REM Enter the IP address:
+
 STRING 1
 DELAY 1000
 
