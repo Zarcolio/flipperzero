@@ -11,8 +11,8 @@ REM ||\    / '  \  /                 .'   /    .'.''| | | |       '. `._____.-'/
 REM |/\'..' /   / /                 /    /___ / /   | |_| |         `-.______ /               '---'
 REM '  `'-'`|`-' /                 |         |\ \._,\ '/|_|                  `
 REM          '..'                  |_________| `--'  `"
-REM Opens facebook.com within the default browser and alerts the document.cookie for Facebook.
-REM Use your imagination for offensive purposes.
+
+REM Change the DNS settings of your Samsung LEDTV UE40F6500 (2013 model) to 1.1.1.1.
 
 DELAY 1000
 
