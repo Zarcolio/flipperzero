@@ -28,3 +28,6 @@ __PowerShell/__
 * `Useful`/`Convert-Ps2Ducky.ps1` - Converts a .ps1 file to a Ducky script.
 * `Useful`/`Escape-DeadKeysAltcode.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (replaces STRING with ALTCODE if a dead key is detected).
 * `Useful`/`Escape-DeadKeysRepeat.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (each dead key is repeated).
+
+__Ducky script creator/__
+* Mobile page to create Ducky scripts on your phone when you don't have a laptop with you.
