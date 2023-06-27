@@ -112,13 +112,13 @@
     /* Added a class to style the save button */
     .save-button {
       font-family: Arial, sans-serif;
-	  font-size: 12px;
+      font-size: 12px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <b>Function:</b>	
+    <b>Function:</b>
     <div class="other">
       <button onclick="appendToOutput('F1')">F1</button>
       <button onclick="appendToOutput('F2')">F2</button>
@@ -134,9 +134,9 @@
       <button onclick="appendToOutput('F12')">F12</button>
     </div>
   </div>
-  
+
   <div class="container">
-    <b>String:</b>	
+    <b>String:</b>
     <div class="other">
       <textarea id="input" rows="4" cols="50" placeholder="Type your text here."></textarea>
     </div>
@@ -160,16 +160,14 @@
   </div>
 
   <div class="container">
-    <b>Modifiers:</b>	
+    <b>Modifiers:</b>
     <div class="other">
       <button onclick="appendToOutput('CTRL')">Ctrl</button>
       <button onclick="appendToOutput('SHIFT')">Shift</button>
       <button onclick="appendToOutput('ALT')">Alt</button>
       <button onclick="appendToOutput('GUI')">Gui</button>
-    </div>
-    <div class="other">
-      <input id="charInput" type="text" maxlength="1" placeholder="Modified key">
-      <button onclick="insertChar()">Insert</button>
+
+      <input id="charInput" type="text" maxlength="1" placeholder="Modified key" oninput="insertChar()">
     </div>
   </div>
 
@@ -218,30 +216,31 @@
       <button onclick="appendToOutput('MENU')">Menu</button>
       <button onclick="appendToOutput('APP')">App</button>
       <button onclick="appendToOutput('SYSRQ')">SysRq</button>
-
     </div>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
-      </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+  </div>
 
-
+  <div class="container">
+    <b></b>
+    <div class="other"></div>
   </div>
 
   <div class="fixed-footer">
-      <b>Output:</b>
-      <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
+    <b>Output:</b>
+    <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
 You can edit this manually before saving, if needed."></textarea>
-      <button id="saveButton" class="save-button">Save As...</button>
+    <button id="saveButton" class="save-button">Save As...</button>
   </div>
 
   <script>
@@ -327,7 +326,7 @@ You can edit this manually before saving, if needed."></textarea>
       const char = charInput.value.trim();
 
       if (char !== '') {
-        output.value += char + '\n';
+        appendToOutput(char); // Execute the insert function directly
         charInput.value = '';
       }
     }
