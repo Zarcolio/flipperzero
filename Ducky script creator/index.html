@@ -49,19 +49,16 @@
       background-color: #4E9AF1;
       color: white;
       cursor: pointer;
+      border-radius: 4px; /* Added rounded corners */
     }
 
-    .other #delayInput {
+    .other input[type="number"],
+    .other input[type="text"],
+    .other .large-btn {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-    }
-
-    .other .large-btn {
-      width: 100%;
-      white-space: normal;
-      line-height: 1.2;
     }
 
     #translateButton,
@@ -72,6 +69,7 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
+      border-radius: 4px; /* Added rounded corners */
     }
 
     #output {
@@ -82,10 +80,26 @@
       border-radius: 4px;
       resize: vertical;
     }
+
+    /* Added new styles for input fields and buttons in the "other" class */
+    .other > input[type="number"],
+    .other > input[type="text"],
+    .other > button {
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    .other .large-btn {
+      width: 100%;
+      white-space: normal;
+      line-height: 1.2;
+      border-radius: 4px; /* Added rounded corners */
+      margin-top: 5px; /* Added margin-top to create space */
+    }
   </style>
 </head>
 <body>
-  <h1>Ducky Script Translator</h1>
   <div class="container">
     <b>Function:</b>	
     <div class="other">
@@ -106,25 +120,30 @@
   <div class="container">
     <b>String:</b>	
     <div class="other">
-      <textarea id="input" rows="4" cols="50"></textarea>
+      <textarea id="input" rows="4" cols="50" placeholder="Type your text here.
+It will be translated in STRING OR ALTCODE."></textarea>
     </div>
   </div>
-  
+
   <div class="container">
     <button id="translateButton">Translate</button>
   </div>
-  
+
   <div class="container">
     <b>Delay:</b>
     <div class="other">
       <input id="delayInput" type="number" value="1000" min="0">
       <button onclick="appendToOutput('DELAY ' + document.getElementById('delayInput').value)">DELAY</button>
-      <input id="delayInput" type="number" value="1000" min="0">
-      <button onclick="appendToOutput('DEFAUT_DELAY ' + document.getElementById('delayInput').value)">DEFAULT_DELAY</button>
+    </div>
+    <div class="other">
+      <input id="defaultDelayInput" type="number" value="1000" min="0">
+      <button onclick="appendToOutput('DEFAULT_DELAY ' + document.getElementById('defaultDelayInput').value)">DEFAULT_DELAY</button>
+    </div>
+    <div class="other">
       <button class="large-btn" onclick="appendToOutput('WAIT_FOR_BUTTON_PRESS')">BUTTON_PRESS</button>
     </div>
   </div>
-  
+
   <div class="container">
     <b>Modifiers:</b>	
     <div class="other">
@@ -134,11 +153,13 @@
       <button onclick="appendToOutput('ALT')">Alt</button>
       <button onclick="appendToOutput('GUI')">Gui</button>
       <button onclick="appendToOutput('WINDOWS')">Windows</button>
+    </div>
+    <div class="other">
       <input id="charInput" type="text" maxlength="1" placeholder="Key">
       <button onclick="insertChar()">Insert</button>
     </div>
   </div>
-  
+
   <div class="container">
     <b>Combos:</b>
     <div class="other">
@@ -149,7 +170,7 @@
       <button onclick="appendToOutput('GUI-SHIFT')">Gui-Shift</button>
     </div>
   </div>
-  
+
   <div class="container">
     <b>Cursor:</b>
     <div class="other">
@@ -163,7 +184,7 @@
       <button onclick="appendToOutput('UP')">Up</button>
     </div>
   </div>
-  
+
   <div class="container">
     <b>Control:</b>
     <div class="other">
@@ -190,12 +211,12 @@
       <button onclick="appendToOutput('SYSRQ')">SysRq</button>
     </div>
   </div>
-  
+
   <div class="container">
     <b>Output:</b>
-    <textarea id="output" rows="4" cols="50"></textarea>
+    <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here."></textarea>
   </div>
-  
+
   <div class="container">
     <button id="saveButton">Save As...</button>
   </div>
