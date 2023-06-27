@@ -61,7 +61,8 @@
       border-radius: 4px;
     }
 
-    #translateButton,
+    #createStringButton,
+    #createRemarkButton,
     #saveButton {
       padding: 10px;
       border: none;
@@ -120,13 +121,13 @@
   <div class="container">
     <b>String:</b>	
     <div class="other">
-      <textarea id="input" rows="4" cols="50" placeholder="Type your text here.
-It will be translated in STRING OR ALTCODE."></textarea>
+      <textarea id="input" rows="4" cols="50" placeholder="Type your text here."></textarea>
     </div>
   </div>
 
   <div class="container">
-    <button id="translateButton">Translate</button>
+    <button id="createStringButton">Write String</button>
+    <button id="createRemarkButton">Write Remark</button>
   </div>
 
   <div class="container">
@@ -148,14 +149,12 @@ It will be translated in STRING OR ALTCODE."></textarea>
     <b>Modifiers:</b>	
     <div class="other">
       <button onclick="appendToOutput('CTRL')">Ctrl</button>
-      <button onclick="appendToOutput('CONTROL')">Control</button>
       <button onclick="appendToOutput('SHIFT')">Shift</button>
       <button onclick="appendToOutput('ALT')">Alt</button>
       <button onclick="appendToOutput('GUI')">Gui</button>
-      <button onclick="appendToOutput('WINDOWS')">Windows</button>
     </div>
     <div class="other">
-      <input id="charInput" type="text" maxlength="1" placeholder="Key">
+      <input id="charInput" type="text" maxlength="1" placeholder="Modified key">
       <button onclick="insertChar()">Insert</button>
     </div>
   </div>
@@ -175,13 +174,9 @@ It will be translated in STRING OR ALTCODE."></textarea>
     <b>Cursor:</b>
     <div class="other">
       <button onclick="appendToOutput('DOWNARROW')">Down arrow</button>
-      <button onclick="appendToOutput('DOWN')">Down</button>
       <button onclick="appendToOutput('LEFTARROW')">Left arrow</button>
-      <button onclick="appendToOutput('LEFT')">Left</button>
       <button onclick="appendToOutput('RIGHTARROW')">Right arrow</button>
-      <button onclick="appendToOutput('RIGHT')">Right</button>
       <button onclick="appendToOutput('UPARROW')">Up arrow</button>
-      <button onclick="appendToOutput('UP')">Up</button>
     </div>
   </div>
 
@@ -214,7 +209,8 @@ It will be translated in STRING OR ALTCODE."></textarea>
 
   <div class="container">
     <b>Output:</b>
-    <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here."></textarea>
+<textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
+You can edit this manually before saving, if needed."></textarea>
   </div>
 
   <div class="container">
@@ -222,10 +218,11 @@ It will be translated in STRING OR ALTCODE."></textarea>
   </div>
 
   <script>
-    document.getElementById('translateButton').addEventListener('click', translate);
+    document.getElementById('createStringButton').addEventListener('click', createString);
+    document.getElementById('createRemarkButton').addEventListener('click', createRemark);
     document.getElementById('saveButton').addEventListener('click', saveOutput);
 
-    function translate() {
+    function createString() {
       const input = document.getElementById('input');
       const output = document.getElementById('output');
       let translatedInput = '';
@@ -254,6 +251,35 @@ It will be translated in STRING OR ALTCODE."></textarea>
       input.value = ''; // Clear the input
     }
 
+    function createRemark() {
+      const input = document.getElementById('input');
+      const output = document.getElementById('output');
+      let translatedInput = '';
+
+      const lines = input.value.split('\n');
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+
+        if (line === '') {
+          continue; // Skip empty lines
+        }
+
+        if (hasDeadKeys(line)) {
+          translatedInput += `ALTCODE ${line}\n`;
+        } else {
+          translatedInput += `REM ${line}\n`;
+        }
+      }
+
+      // If the input does not end with a new line, append a new line to the translated input
+      if (input.value[input.value.length - 1] !== '\n') {
+        translatedInput += '\n';
+      }
+
+      output.value += translatedInput.trim() + '\n'; // Append to the output and add a new line
+      input.value = ''; // Clear the input
+    }
+
     function hasDeadKeys(input) {
       const deadKeys = /[`^~"']/;
       return deadKeys.test(input);
@@ -261,7 +287,7 @@ It will be translated in STRING OR ALTCODE."></textarea>
 
     function appendToOutput(value) {
       const output = document.getElementById('output');
-      if (value === 'CTRL' || value === 'CONTROL' || value === 'SHIFT' || value === 'ALT' || value === 'GUI' || value === 'WINDOWS') {
+      if (value === 'CTRL' || value === 'CONTROL' || value === 'SHIFT' || value === 'ALT' || value === 'GUI' ) {
         output.value += value + ' ';
       } else {
         output.value += value + '\n';
