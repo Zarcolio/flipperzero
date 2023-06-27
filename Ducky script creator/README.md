@@ -1,4 +1,4 @@
-# Flipper Zero DuckyScript Creation Guide
+# Ducky Script Creator Guide
 
 This guide provides instructions on how to create a DuckyScript for your Flipper Zero using your smartphone when you don't have access to a laptop or computer. Flipper Zero is a versatile tool that combines various hacking and pentesting functionalities into a single device.
 
