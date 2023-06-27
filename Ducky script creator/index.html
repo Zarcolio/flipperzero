@@ -46,8 +46,8 @@
       height: 40px;
       font-size: 12px;
       border: none;
-      background-color: #4E9AF1;
-      color: white;
+      background-color: #FFB866; /* Light shade of orange */
+      color: black; /* Black text */
       cursor: pointer;
       border-radius: 4px; /* Added rounded corners */
     }
@@ -66,8 +66,8 @@
     #saveButton {
       padding: 10px;
       border: none;
-      background-color: #4E9AF1;
-      color: white;
+      background-color: #FFB866; /* Light shade of orange */
+      color: black; /* Black text */
       font-size: 16px;
       cursor: pointer;
       border-radius: 4px; /* Added rounded corners */
@@ -107,6 +107,12 @@
       background-color: white;
       padding: 10px;
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Added a class to style the save button */
+    .save-button {
+      font-family: Arial, sans-serif;
+	  font-size: 12px;
     }
   </style>
 </head>
@@ -214,27 +220,28 @@
       <button onclick="appendToOutput('SYSRQ')">SysRq</button>
 
     </div>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>
-	  </br>    </div>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+
+
   </div>
 
   <div class="fixed-footer">
       <b>Output:</b>
       <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
 You can edit this manually before saving, if needed."></textarea>
-      <button id="saveButton">Save As...</button>
+      <button id="saveButton" class="save-button">Save As...</button>
   </div>
 
   <script>
