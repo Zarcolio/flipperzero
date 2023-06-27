@@ -98,6 +98,16 @@
       border-radius: 4px; /* Added rounded corners */
       margin-top: 5px; /* Added margin-top to create space */
     }
+
+    .fixed-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      padding: 10px;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -118,6 +128,7 @@
       <button onclick="appendToOutput('F12')">F12</button>
     </div>
   </div>
+  
   <div class="container">
     <b>String:</b>	
     <div class="other">
@@ -201,17 +212,29 @@
       <button onclick="appendToOutput('MENU')">Menu</button>
       <button onclick="appendToOutput('APP')">App</button>
       <button onclick="appendToOutput('SYSRQ')">SysRq</button>
+
     </div>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>
+	  </br>    </div>
   </div>
 
-  <div class="container">
-    <b>Output:</b>
-<textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
+  <div class="fixed-footer">
+      <b>Output:</b>
+      <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
 You can edit this manually before saving, if needed."></textarea>
-  </div>
-
-  <div class="container">
-    <button id="saveButton">Save As...</button>
+      <button id="saveButton">Save As...</button>
   </div>
 
   <script>
