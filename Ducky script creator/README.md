@@ -1,6 +1,6 @@
 # Ducky Script Creator Guide
 
-This guide provides instructions on how to create a DuckyScript for your Flipper Zero using your smartphone when you don't have access to a laptop or computer. Flipper Zero is a versatile tool that combines various hacking and pentesting functionalities into a single device.
+This guide provides instructions on how to create a DuckyScript for your Flipper Zero using your smartphone when you don't have access to a laptop or computer.
 
 ## Prerequisites
 
@@ -15,14 +15,15 @@ To follow this guide, you will need the following:
 To create a DuckyScript for your Flipper Zero using your smartphone, follow these steps:
 
 1. Open the browser on your smartphone and navigate to the [Ducky Script Creator](https://github.com/Zarcolio/Duckyscript/blob/main/Ducky%20script%20creator/index.html) page.
-2. The Ducky Script Creator is an online tool that allows you to write and generate DuckyScripts easily. It provides a user-friendly interface for creating the scripts.
-3. Read the [instructions](https://gist.github.com/methanoliver/efebfe8f4008e167417d4ab96e5e3cac) and familiarize yourself with the DuckyScript syntax if you are not already familiar with it.
-4. Start writing your DuckyScript by adding the desired commands and keystrokes. You can use the provided examples or create your own from scratch.
-5. As you write the DuckyScript, you will see the corresponding keystrokes and commands being displayed in real-time on the screen.
-6. Once you have finished writing your DuckyScript, review it to ensure it meets your requirements and does not contain any errors.
-7. After verifying the script, click on the "Save as" button to download the generated DuckyScript file to your smartphone.
-8. Transfer the downloaded DuckyScript file to your Flipper Zero using the Flipper app.
-9. On your Flipper Zero, use the BadUSB/BadKB app to navigate to the DuckyScript folder to execute the created script.
+2. Download the HTML file to you phone or upload it to your own website.
+3. The Ducky Script Creator is an online tool that allows you to write and generate DuckyScripts easily. It provides a user-friendly interface for creating the scripts.
+4. Read the [instructions](https://gist.github.com/methanoliver/efebfe8f4008e167417d4ab96e5e3cac) and familiarize yourself with the DuckyScript syntax if you are not already familiar with it.
+5. Start writing your DuckyScript by adding the desired commands and keystrokes. You can use the provided examples or create your own from scratch.
+6. As you write the DuckyScript, you will see the corresponding keystrokes and commands being displayed in real-time on the screen.
+7. Once you have finished writing your DuckyScript, review it to ensure it meets your requirements and does not contain any errors.
+8. After verifying the script, click on the "Save as" button to download the generated DuckyScript file to your smartphone.
+9. Transfer the downloaded DuckyScript file to your Flipper Zero using the Flipper app.
+10. On your Flipper Zero, use the BadUSB/BadKB app to navigate to the DuckyScript folder to execute the created script.
 
 Congratulations! You have successfully created and loaded a DuckyScript onto your Flipper Zero using your smartphone.
 
