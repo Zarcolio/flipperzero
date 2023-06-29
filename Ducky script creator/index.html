@@ -99,14 +99,15 @@
       margin-top: 5px; /* Added margin-top to create space */
     }
 
-    .fixed-footer {
+    .fixed-header {
       position: fixed;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
       background-color: white;
       padding: 10px;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
     }
 
     /* Added a class to style the save button */
@@ -114,26 +115,38 @@
       font-family: Arial, sans-serif;
       font-size: 12px;
     }
+
+.container.function {
+  padding-top: 280px;
+}
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <b>Function:</b>
-    <div class="other">
-      <button onclick="appendToOutput('F1')">F1</button>
-      <button onclick="appendToOutput('F2')">F2</button>
-      <button onclick="appendToOutput('F3')">F3</button>
-      <button onclick="appendToOutput('F4')">F4</button>
-      <button onclick="appendToOutput('F5')">F5</button>
-      <button onclick="appendToOutput('F6')">F6</button>
-      <button onclick="appendToOutput('F7')">F7</button>
-      <button onclick="appendToOutput('F8')">F8</button>
-      <button onclick="appendToOutput('F9')">F9</button>
-      <button onclick="appendToOutput('F10')">F10</button>
-      <button onclick="appendToOutput('F11')">F11</button>
-      <button onclick="appendToOutput('F12')">F12</button>
-    </div>
+  <div class="fixed-header">
+    <b>Output:</b>
+    <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
+    You can edit this manually before saving, if needed."></textarea>
+    <button id="saveButton" class="save-button">Save As...</button>
   </div>
+
+<div class="container function">
+  <b>Function:</b>
+  <div class="other">
+    <button onclick="appendToOutput('F1')">F1</button>
+    <button onclick="appendToOutput('F2')">F2</button>
+    <button onclick="appendToOutput('F3')">F3</button>
+    <button onclick="appendToOutput('F4')">F4</button>
+    <button onclick="appendToOutput('F5')">F5</button>
+    <button onclick="appendToOutput('F6')">F6</button>
+    <button onclick="appendToOutput('F7')">F7</button>
+    <button onclick="appendToOutput('F8')">F8</button>
+    <button onclick="appendToOutput('F9')">F9</button>
+    <button onclick="appendToOutput('F10')">F10</button>
+    <button onclick="appendToOutput('F11')">F11</button>
+    <button onclick="appendToOutput('F12')">F12</button>
+  </div>
+</div>
 
   <div class="container">
     <b>String:</b>
@@ -217,30 +230,11 @@
       <button onclick="appendToOutput('APP')">App</button>
       <button onclick="appendToOutput('SYSRQ')">SysRq</button>
     </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
   </div>
 
   <div class="container">
     <b></b>
     <div class="other"></div>
-  </div>
-
-  <div class="fixed-footer">
-    <b>Output:</b>
-    <textarea id="output" rows="4" cols="50" placeholder="Your Ducky script will appear here.
-You can edit this manually before saving, if needed."></textarea>
-    <button id="saveButton" class="save-button">Save As...</button>
   </div>
 
   <script>
