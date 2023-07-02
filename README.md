@@ -33,3 +33,6 @@ __PowerShell/__
 
 __Ducky script creator/__
 * Mobile page to create Ducky scripts on your phone when you don't have a laptop with you.
+
+## Infrared
+* `SB1x0` - Remote for JBL soundbars SB120 / SB140 / SB170.
