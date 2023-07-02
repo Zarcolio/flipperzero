@@ -1,6 +1,8 @@
 ![](https://img.shields.io/github/license/Zarcolio/Duckyscript) ![](https://badges.pufler.dev/visits/Zarcolio/Duckyscript) ![](https://img.shields.io/github/stars/Zarcolio/Duckyscript) ![](https://img.shields.io/github/forks/Zarcolio/Duckyscript) ![](https://img.shields.io/github/issues/Zarcolio/Duckyscript) ![](https://img.shields.io/github/issues-closed-raw/Zarcolio/Duckyscript)  ![](https://img.shields.io/github/issues-pr/Zarcolio/Duckyscript) ![](https://img.shields.io/github/issues-pr-closed-raw/Zarcolio/Duckyscript)
 
-# Duckyscript
+# Flipper Zero
+
+## Bad USB
 Ducky script for Bad USB on the Flipper Zero
 
 __Ducky script/__
