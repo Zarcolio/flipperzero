@@ -33,11 +33,9 @@ ALTCODE $FindMe = "4e657a1d-b1a5-4a75-8e45-9a82791a2f21.txt"
 ENTER
 STRING $found = $false
 ENTER
-ENTER
 STRING while (-not $found) {
 ENTER
 STRING $drives = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
-ENTER
 ENTER
 STRING foreach ($drive in $drives) {
 ENTER
