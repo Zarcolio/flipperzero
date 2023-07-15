@@ -254,11 +254,7 @@ You can edit this manually before saving, if needed."></textarea>
           continue; // Skip empty lines
         }
 
-        if (hasDeadKeys(line)) {
-          translatedInput += `ALTCODE ${line}\n`;
-        } else {
-          translatedInput += `STRING ${line}\n`;
-        }
+          translatedInput += `ALTSTRING ${line}\n`;
       }
 
       // If the input does not end with a new line, append a new line to the translated input
@@ -283,11 +279,7 @@ You can edit this manually before saving, if needed."></textarea>
           continue; // Skip empty lines
         }
 
-        if (hasDeadKeys(line)) {
-          translatedInput += `ALTCODE ${line}\n`;
-        } else {
           translatedInput += `REM ${line}\n`;
-        }
       }
 
       // If the input does not end with a new line, append a new line to the translated input
@@ -297,11 +289,6 @@ You can edit this manually before saving, if needed."></textarea>
 
       output.value += translatedInput.trim() + '\n'; // Append to the output and add a new line
       input.value = ''; // Clear the input
-    }
-
-    function hasDeadKeys(input) {
-      const deadKeys = /[`^~"']/;
-      return deadKeys.test(input);
     }
 
     function appendToOutput(value) {
