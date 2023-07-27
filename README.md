@@ -16,6 +16,7 @@ Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 * `Offensive`/`Cookie-Facebook-WinEdge.txt` - Opens facebook.com within Edge browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
 * `Offensive`/`ExfilToUsb.txt` - Copies a folder recursively to an USB drive you bring along.
 * `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you bring along.
+* `Offensive`/`Exfil-Default-Pwd-Windows.txt` - Steals DefaultPassword for automatic logon, exfils it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
 * `Offensive`/`Exfil-Wifi-Pwd-Win10.txt` - Steals wifi passwords (uptil win10, win11 needs admin for all passwords), exfils it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
 * `Offensive`/`HookBeEF-WinDefaultBrowser.txt`- Opens the BeEF demo page within the default browser so you can see interesting information on the victim.
 * `Offensive`/`Password-top100.txt` - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
