@@ -17,6 +17,8 @@ Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 * `Offensive`/`ExfilToUsb.txt` - Copies a folder recursively to an USB drive you bring along.
 * `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you bring along.
 * `Offensive`/`Exfil-Default-Pwd-Windows.txt` - Steals DefaultPassword for automatic logon, exfils it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
+* `Phish_Office365_From_Usb.txt` - Creates a phishing page for Office 365. If the user hits the sign-in button, a message appears in red "You typed your password inside a phishing page
+because you did not lock your screen!"
 * `Offensive`/`Exfil-Wifi-Pwd-Win10.txt` - Steals wifi passwords (uptil win10, win11 needs admin for all passwords), exfils it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
 * `Offensive`/`HookBeEF-WinDefaultBrowser.txt`- Opens the BeEF demo page within the default browser so you can see interesting information on the victim.
 * `Offensive`/`Password-top100.txt` - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
