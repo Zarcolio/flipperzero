@@ -7,6 +7,7 @@ Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 
 ### Ducky script/
 * `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen in your office? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
+* `Defensive`/`Phish_Office365_From_Usb.txt` - Creates a phishing page for Office 365. The email address is extracted via Outlook :) If the user hits the sign-in button, a message appears in red "You typed your password inside a phishing page because you did not lock your screen!"
 * `Defensive`/`Policy_Lock-Screen_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
 * `Defensive`/`Show_wifi_passwords_Win_PS.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open a Powershell window and show the user their wifi passwords.
 * `Defensive`/`Website-FF-Android.txt` - Opens a website with Firefox (only works when Firefox hasn't been opened).
@@ -17,8 +18,6 @@ Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 * `Offensive`/`ExfilToUsb.txt` - Copies a folder recursively to an USB drive you bring along.
 * `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you bring along.
 * `Offensive`/`Exfil-Default-Pwd-Windows.txt` - Steals DefaultPassword for automatic logon, exfils it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
-* `Phish_Office365_From_Usb.txt` - Creates a phishing page for Office 365. If the user hits the sign-in button, a message appears in red "You typed your password inside a phishing page
-because you did not lock your screen!"
 * `Offensive`/`Exfil-Wifi-Pwd-Win10.txt` - Steals wifi passwords (uptil win10, win11 needs admin for all passwords), exfils it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
 * `Offensive`/`HookBeEF-WinDefaultBrowser.txt`- Opens the BeEF demo page within the default browser so you can see interesting information on the victim.
 * `Offensive`/`Password-top100.txt` - Top 100 passwords turned into a Ducky script by Create-PwdDictAttack.ps1.
