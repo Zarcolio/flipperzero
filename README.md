@@ -2,8 +2,7 @@
 
 # Flipper Zero
 
-Want to get the latest updates?
-
+Want to get the latest updates?  
 Be sure to ⭐ this repo! 
 
 ## Bad USB/
