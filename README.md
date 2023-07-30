@@ -4,7 +4,7 @@ Want to get the latest updates?
 Be sure to ⭐ this repo! 
 
 # Bad USB/
-Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
+Stuff for Bad USB (or Bad KB on [Xtreme](https://github.com/Flipper-XFW/Xtreme-Firmware)) on the Flipper Zero
 
 ## Ducky script/
 * `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen in your office? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
