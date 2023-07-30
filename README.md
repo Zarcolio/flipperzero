@@ -1,14 +1,12 @@
 ![](https://img.shields.io/github/license/Zarcolio/Duckyscript) ![](https://badges.pufler.dev/visits/Zarcolio/Duckyscript) ![](https://img.shields.io/github/stars/Zarcolio/Duckyscript) ![](https://img.shields.io/github/forks/Zarcolio/Duckyscript) ![](https://img.shields.io/github/issues/Zarcolio/Duckyscript) ![](https://img.shields.io/github/issues-closed-raw/Zarcolio/Duckyscript)  ![](https://img.shields.io/github/issues-pr/Zarcolio/Duckyscript) ![](https://img.shields.io/github/issues-pr-closed-raw/Zarcolio/Duckyscript)
 
-# Flipper Zero
-
 Want to get the latest updates?  
 Be sure to ⭐ this repo! 
 
-## Bad USB/
+# Bad USB/
 Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 
-### Ducky script/
+## Ducky script/
 * `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen in your office? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
 * `Defensive`/`Phish_Office365_From_Usb.txt` - Creates a phishing page for Office 365. The email address is extracted via Outlook :) If the user hits the sign-in button, a message appears in red "You typed your password inside a phishing page because you did not lock your screen!"
 * `Defensive`/`Policy_Lock-Screen_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
@@ -29,7 +27,7 @@ Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 * `Offensive`/`Samsung-LEDTV-UE40F6500.txt` - Changes the DNS settings of your Samsung LED TV UE40F6500 (2013 model) to 1.1.1.1.
 * `Useful`/`DuckyScript_UDL.txt` - Automatically installs User Defined Language in Notepad++ for Ducky Script.
 
-### PowerShell/
+## PowerShell/
 * `Offensive`/`Create-PwdDictAttack.ps1` - Creates a Ducky script that tries a list of passwords, for example against the Windows logon screen. Delay and wait time/method are configurable.
 * `Offensive`/`Generate-PinCodes.ps1` - Generates 4 number pin codes, easy to remember pin codes first.
 * `Useful`/`Convert-Ps2Ducky.ps1` - Converts a .ps1 file to a Ducky script.
@@ -39,5 +37,5 @@ Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 ### Ducky script creator/
 * Mobile page to create Ducky scripts on your phone when you don't have a laptop with you. Try it out [here](https://bit.ly/DuckyScriptCreator)!
 
-## Infrared
+# Infrared
 * `JBL_SB1x0` - Remote for JBL soundbars SB120 / SB140 / SB170.
