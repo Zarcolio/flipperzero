@@ -34,7 +34,7 @@ Stuff for Bad USB (or Bad KB on Xtreme) on the Flipper Zero
 * `Useful`/`Escape-DeadKeysAltcode.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (replaces STRING with ALTCODE if a dead key is detected).
 * `Useful`/`Escape-DeadKeysRepeat.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (each dead key is repeated).
 
-### Ducky script creator/
+## Ducky script creator/
 * Mobile page to create Ducky scripts on your phone when you don't have a laptop with you. Try it out [here](https://bit.ly/DuckyScriptCreator)!
 
 # Infrared
