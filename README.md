@@ -28,7 +28,7 @@ Stuff for Bad USB (or Bad KB on [Xtreme](https://github.com/Flipper-XFW/Xtreme-F
 * `Useful`/`DuckyScript_UDL.txt` - Automatically installs User Defined Language in Notepad++ for Ducky Script.
 
 ## PowerShell/
-* `Offensive`/`Create-PwdDictAttack.ps1` - Creates a Ducky script that tries a list of passwords, for example against the Windows logon screen. Delay and wait time/method are configurable.
+* `Offensive`/`Create-PwdDictAttack.ps1` - Creates a Ducky script that tries a list of passwords (or pincodes), for example against the Windows logon screen. Delay and wait time/method are configurable.
 * `Offensive`/`Generate-PinCodes.ps1` - Generates 4 number pin codes, easy to remember pin codes first.
 * `Useful`/`Convert-Ps2Ducky.ps1` - Converts a .ps1 file to a Ducky script.
 * `Useful`/`Escape-DeadKeysAltcode.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (replaces STRING with ALTCODE if a dead key is detected).
