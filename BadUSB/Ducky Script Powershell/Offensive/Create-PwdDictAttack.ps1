@@ -11,10 +11,16 @@ param(
     [int]$Wait = $null,
 
     [Parameter(Position=3, HelpMessage="Select the processing mode: 'string' processes the entire input as a single string, 'char' processes each character separately. Default is 'string'.")]
-    [string]$StringMode = "string",
+    [string]$PrintMode = "string",
 
     [Parameter(Position=4, HelpMessage="Character delay in milliseconds. Applicable only in 'char' mode.")]
-    [int]$CharDelay = 500
+    [int]$CharDelay = 500,
+
+    [Parameter(Position=5, HelpMessage="Select the command to use: 'STRING' or 'ALTSTRING'. Default is 'STRING'.")]
+    [string]$StringMode = "STRING",
+
+    [Parameter(Position=6, HelpMessage="Add BACKSPACE at the end of each character loop to prevent overflow.")]
+    [switch]$PreventOverflow
 )
 
 # Determine output folder and file path
@@ -35,7 +41,6 @@ New-Item -ItemType File -Path $OutputFile -Force -ErrorAction Stop | Out-Null
 Write-Verbose "Output file created successfully: $OutputFile"
 
 # Read input file and convert to Ducky Script
-$EnterKey = [char]13
 $Lines = Get-Content $InputFile
 foreach ($Line in $Lines) {
     if ($Wait) {
@@ -45,25 +50,30 @@ foreach ($Line in $Lines) {
         $WaitStr = "WAIT_FOR_BUTTON_PRESS"
     }
 
-    if ($StringMode -eq "string") {
-        $command = "ALTSTRING $Line`nDELAY $Delay`nENTER`n$WaitStr`n"
+    if ($PrintMode -eq "string") {
+        $command = "$StringMode $Line`nDELAY $Delay`nENTER`n$WaitStr`n"
         Add-Content -Path $OutputFile -Value $command
     }
-    elseif ($StringMode -eq "char") {
+    elseif ($PrintMode -eq "char") {
         $charArray = $Line.ToCharArray()
         $charCount = $charArray.Length
         for ($i = 0; $i -lt $charCount; $i++) {
             $char = $charArray[$i]
-            $command = "ALTSTRING $char`nDELAY $CharDelay"
+            $command = "$StringMode $char"
             Add-Content -Path $OutputFile -Value $command
             if ($i -ne ($charCount - 1)) {
                 Add-Content -Path $OutputFile -Value "DELAY $CharDelay"
             }
         }
-        Add-Content -Path $OutputFile -Value "DELAY $Wait`n"
+        
+        Add-Content -Path $OutputFile -Value "DELAY $Wait"
+        
+        if ($PreventOverflow) {
+        Add-Content -Path $OutputFile -Value "BACKSPACE`n"
+        }
     }
     else {
-        Write-Error "Invalid value for StringMode parameter. Supported values: 'string', 'char'."
+        Write-Error "Invalid value for PrintMode parameter. Supported values: 'string', 'char'."
     }
 }
 Write-Verbose "Conversion complete."
