@@ -1,12 +1,25 @@
+[CmdletBinding()]
+param (
+    [switch]$UseMMDD
+)
+
 # Define the list of "very easy" numbers
 $veryEasyNumbers = @(0, 1, 2, 3, 4, 5, 6, 7, 8, 9) | ForEach-Object {
     $_.ToString() * 4  # Four identical digits
 }
-$veryEasyNumbers += "1234"  # The sequence "1234"
 
 # Define the list of "easy" numbers consisting of adjacent duos
 $adjacentEasyNumbers = @(0, 1, 2, 3, 4, 5, 6, 7, 8, 9) | ForEach-Object {
     "{0}{0}{1}{1}" -f $_, (($_ + 1) % 10)  # Two pairs of digits
+}
+
+# Initialize an empty array to store the sequences
+$conseqnumbers = @()
+
+# Loop through the range and generate sequences
+for ($i = 0; $i -le 6; $i++) {
+    $sequence = $i..($i + 3) -join ''
+    $conseqnumbers += $sequence
 }
 
 # Define the list of "easy" numbers consisting of all combinations of 2 duos
@@ -24,8 +37,8 @@ $easyNumbers = @(0..9) | ForEach-Object {
 # Define the list of year numbers
 $YearNumbers = @()
 
-# Loop through all years from 1901 to the current year
-for ($year = 1901; $year -le (Get-Date).Year; $year++) {
+# Loop through all years from 1900 to the current year
+for ($year = 1900; $year -le (Get-Date).Year; $year++) {
     # Add the year to the array
     $YearNumbers += $year
 }
@@ -35,19 +48,55 @@ $doubleUnder100 = @(0..99) | ForEach-Object {
     "{0:D2}{0:D2}" -f $_
 }
 
+# Initialize an empty array to store the dates
+$datesddmm = @()
+
+# Loop through all possible dates in DDMM format
+    for ($month = 1; $month -le 12; $month++) {
+for ($day = 1; $day -le 31; $day++) {
+        $formattedDay = "{0:D2}" -f $day
+        $formattedMonth = "{0:D2}" -f $month
+        $date = $formattedDay + $formattedMonth
+        $datesddmm += $date
+    }
+}
+
+# Initialize an empty array to store the dates
+$datesmmdd = @()
+
+# Loop through all possible dates in MMDD format
+for ($month = 1; $month -le 12; $month++) {
+    for ($day = 1; $day -le 31; $day++) {
+        $formattedMonth = "{0:D2}" -f $month
+        $formattedDay = "{0:D2}" -f $day
+        $date = $formattedMonth + $formattedDay
+        $datesmmdd += $date
+    }
+}
+
 # Generate all combinations from 0000 to 9999
 $combinations = 0..9999 | ForEach-Object {
     "{0:D4}" -f $_
 }
 
+# Determine the order in which to combine numbers based on the parameter
+$alldates = @()
+if ($UseMMDD) {
+    $alldates = $datesmmdd + $datesddmm
+} else {
+    $alldates = $datesddmm + $datesmmdd
+}
+
+# Combine numbers 
+$allNumbers = $veryEasyNumbers + $conseqnumbers + $adjacentEasyNumbers + $YearNumbers + $easyNumbers + $alldates + $doubleUnder100
+
 # Randomize the order of the non-easy numbers
 $nonEasyNumbers = $combinations | Where-Object {
-    $veryEasyNumbers + $adjacentEasyNumbers + $easyNumbers -notcontains $_
+    $allNumbers -notcontains $_
 }
 $randomizedNonEasyNumbers = $nonEasyNumbers | Get-Random -Count $nonEasyNumbers.Count
 
-# Combine the easy, double under 100, and non-easy numbers and write to a file
-$allNumbers = $veryEasyNumbers + $adjacentEasyNumbers + $YearNumbers + $easyNumbers + $doubleUnder100
+# Write numbers to a file
 $randomizedNumbers = @()
 foreach ($number in $allNumbers) {
     if ($randomizedNumbers -notcontains $number) {
