@@ -15,7 +15,7 @@ Stuff for Bad USB (or Bad KB on [Xtreme](https://github.com/Flipper-XFW/Xtreme-F
 * `Defensive`/`Website-Manual-Android.txt` - Opens the default browser, then pauses. Manually select the address bar and hit the Run button. An awareness message is displayed.
 * `Offensive`/`Pin_Bruteforcer_Netflix.txt` - Bruteforces parental pin on Netflix app under Android. Created with:
 ```
-powershell.exe Create-PwdDictAttack.ps1 -PrintMode char -InputFile .\pin_codes.txt -Wait 1000 -CharDelay 2000 -PreventOverflow
+Create-PwdDictAttack.ps1 -PrintMode char -Wait 1000 -CharDelay 2000 -PreventOverflow
 ```
 * `Offensive`/`Cookie-Facebook-WinChrome.txt` - Opens facebook.com within Chrome browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
 * `Offensive`/`Cookie-Facebook-WinDefaultBrowser.txt` - Opens facebook.com within the default browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
