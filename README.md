@@ -13,7 +13,8 @@ Stuff for Bad USB (or Bad KB on [Xtreme](https://github.com/Flipper-XFW/Xtreme-F
 * `Defensive`/`Show_wifi_passwords_Win_PS.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open a Powershell window and show the user their wifi passwords.
 * `Defensive`/`Website-FF-Android.txt` - Opens a website with Firefox (only works when Firefox hasn't been opened).
 * `Defensive`/`Website-Manual-Android.txt` - Opens the default browser, then pauses. Manually select the address bar and hit the Run button. An awareness message is displayed.
-* `Offensive`/`Pin_Bruteforcer_Netflix.txt` - Bruteforces parental pin on Netflix app under Android. Created with: Create-PwdDictAttack.ps1 -PrintMode char -Wait 1000 -CharDelay 2000 -PreventOverflow
+* `Offensive`/`Pin_Bruteforcer_Netflix.txt` - Bruteforces parental pin on Netflix app under Android. Created with: `Create-PwdDictAttack.ps1 -PrintMode char -Wait 1000 -CharDelay 2000 -PreventOverflow -Enter`
+* `Offensive`/`Pin_Bruteforcer_HBO.txt` - Bruteforces parental pin on HBO app under Android. Created with: `Create-PwdDictAttack.ps1 -InputFile .\pincodes.txt -Wait 500`
 * `Offensive`/`Cookie-Facebook-WinChrome.txt` - Opens facebook.com within Chrome browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
 * `Offensive`/`Cookie-Facebook-WinDefaultBrowser.txt` - Opens facebook.com within the default browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
 * `Offensive`/`Cookie-Facebook-WinEdge.txt` - Opens facebook.com within Edge browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
