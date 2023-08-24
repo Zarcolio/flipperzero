@@ -20,7 +20,10 @@ param(
     [string]$StringMode = "STRING",
 
     [Parameter(Position=6, HelpMessage="Add BACKSPACE at the end of each character loop to prevent overflow.")]
-    [switch]$PreventOverflow
+    [switch]$PreventOverflow,
+
+    [Parameter(Position=7, HelpMessage="Include ENTER key press at the end of the command.")]
+    [switch]$Enter
 )
 
 # Determine output folder and file path
@@ -51,7 +54,11 @@ foreach ($Line in $Lines) {
     }
 
     if ($PrintMode -eq "string") {
-        $command = "$StringMode $Line`nDELAY $Delay`nENTER`n$WaitStr`n"
+        $command = "$StringMode $Line"
+        if ($Enter) {
+            $command += "`r`nENTER"
+        }
+        $command += "`r`n$WaitStr`r`n"
         Add-Content -Path $OutputFile -Value $command
     }
     elseif ($PrintMode -eq "char") {
@@ -66,10 +73,14 @@ foreach ($Line in $Lines) {
             }
         }
         
+        if ($Enter) {
+            Add-Content -Path $OutputFile -Value "ENTER`r`n"
+        }
+        
         Add-Content -Path $OutputFile -Value "DELAY $Wait"
         
         if ($PreventOverflow) {
-        Add-Content -Path $OutputFile -Value "BACKSPACE`n"
+            Add-Content -Path $OutputFile -Value "BACKSPACE`r`n"
         }
     }
     else {
