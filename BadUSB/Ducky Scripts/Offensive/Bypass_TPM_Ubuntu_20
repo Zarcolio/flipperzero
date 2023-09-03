@@ -1,4 +1,5 @@
-# By @Shadow0pz - https://twitter.com/Shadow0pz/status/1698090975602622534
+# Ducky script by @Shadow0pz - https://twitter.com/Shadow0pz/status/1698090975602622534
+# Exploit credit: https://pulsesecurity.co.nz/advisories/tpm-luks-bypass
 
 DELAY 15ms
 ENTER
