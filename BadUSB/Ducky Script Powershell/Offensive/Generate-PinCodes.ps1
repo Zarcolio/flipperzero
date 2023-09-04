@@ -15,7 +15,7 @@
 [CmdletBinding()]
 param (
     [switch]$UseMMDD,
-    [string]$PinOrder = "SameDigits,Sequences,AdjacentPairs,Years,Thousands,DuoCombinations,DateDDMM,DateMMDD,DoubleDigits", # Default order
+    [string]$PinOrder = "SameDigits,Sequences,AdjacentPairs,Years,Thousands,DuoCombinations,Palindromes,DateDDMM,DateMMDD,DoubleDigits", # Default order
     [string]$PostPinText = "", # Custom text to append after each pin
     [string]$OutputFile = "pin_codes.txt" # Default output file name
 )
@@ -68,6 +68,20 @@ $DuoCombinationsNumbers = @(0..9) | ForEach-Object {
     }
 }
 
+# Initialize an empty array to store palindromic PINs
+$palindromicPins = @()
+
+# Iterate through the possible digits (0-9) for each position in the PIN
+for ($a = 0; $a -le 9; $a++) {
+    for ($b = 0; $b -le 9; $b++) {
+        # Construct the palindromic PIN
+        $pin = "$a$b$b$a"
+        
+        # Add the palindromic PIN to the list
+        $palindromicPins += $pin
+    }
+}
+
 # Define the list of "DateDDMM" numbers
 $datesddmm = @()
 for ($month = 1; $month -le 12; $month++) {
@@ -103,6 +117,7 @@ $pinCategories = @{
     "Years" = $YearsNumbers
     "Thousands" = $ThousandsNumbers
     "DuoCombinations" = $DuoCombinationsNumbers
+    "Palindromes" = $palindromicPins
     "DateDDMM" = $datesddmm
     "DateMMDD" = $datesmmdd
     "DoubleDigits" = $doubleUnder100
