@@ -204,7 +204,7 @@ if (Test-Path $filePath) {
     $confirmation = Read-Host "The file '$filePath' already exists. Do you want to overwrite it? (Y/N)"
     
     # Check the user's response
-    if ($confirmation -eq "Y" -or $confirmation -eq "y") {
+    if ($confirmation -ieq "Y") {
         # User confirmed, proceed with overwriting
         $randomizedNumbers | Out-File -FilePath $filePath -Force
         Write-Host "File '$filePath' overwritten successfully."
