@@ -15,9 +15,9 @@
 [CmdletBinding()]
 param (
     [switch]$UseMMDD,
-    [string]$PinOrder = "SameDigits,Sequences,AdjacentPairs,Years,Thousands,DuoCombinations,Palindromes,DateDDMM,DateMMDD,DoubleDigits", # Default order
+    [string]$PinOrder = "same,seqential,square,seqentialsamepairs,samepairs,years,1000,palindromes,pairs,DDMM,MMDD", # Default order
     [string]$PostPinText = "", # Custom text to append after each pin
-    [string]$OutputFile = "pin_codes.txt" # Default output file name
+    [string]$OutputFile = "4n_pin_codes.txt" # Default output file name
 )
 
 function PostPin {
@@ -109,18 +109,36 @@ $doubleUnder100 = @(0..99) | ForEach-Object {
     "{0:D2}{0:D2}" -f $_
 }
 
+# Define the numeric keypad layout
+$numericKeypad = @(
+    @(1, 2, 3),
+    @(4, 5, 6),
+    @(7, 8, 9)
+)
+
+# Generate PIN codes
+$square = @()
+for ($row = 0; $row -lt 2; $row++) {
+    for ($col = 0; $col -lt 2; $col++) {
+        $pin = "$($numericKeypad[$row][$col])$($numericKeypad[$row][$col + 1])$($numericKeypad[$row + 1][$col + 1])$($numericKeypad[$row + 1][$col])"
+        $reversedPin = $pin -replace "(.)(.)(.)(.)", '$4$3$2$1'  # Reverse the PIN
+        $square += $pin, $reversedPin
+    }
+}
+
 # Create a hashtable for easy lookup
 $pinCategories = @{
-    "SameDigits" = $SameDigitsNumbers
-    "Sequences" = $conseqNumbers
-    "AdjacentPairs" = $AdjacentPairsNumbers
-    "Years" = $YearsNumbers
-    "Thousands" = $ThousandsNumbers
-    "DuoCombinations" = $DuoCombinationsNumbers
-    "Palindromes" = $palindromicPins
-    "DateDDMM" = $datesddmm
-    "DateMMDD" = $datesmmdd
-    "DoubleDigits" = $doubleUnder100
+    "same" = $SameDigitsNumbers
+    "seqential" = $conseqNumbers
+    "seqentialsamepairs" = $AdjacentPairsNumbers
+    "years" = $YearsNumbers
+    "1000" = $ThousandsNumbers
+    "samepairs" = $DuoCombinationsNumbers
+    "palindromes" = $palindromicPins
+    "DDMM" = $datesddmm
+    "MMDD" = $datesmmdd
+    "pairs" = $doubleUnder100
+    "square" = $square
 }
 
 # Combine numbers based on the order specified in $PinOrder
