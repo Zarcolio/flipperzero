@@ -15,7 +15,7 @@
 [CmdletBinding()]
 param (
     [switch]$UseMMDD,
-    [string]$PinOrder = "same,seqential,square,seqentialsamepairs,samepairs,years,1000,palindromes,pairs,DDMM,MMDD", # Default order
+    [string]$PinOrder = "same,seqential,square,seqentialsamepairs,samepairs,years,1000,palindromes,pairs,DDMM,MMDD,3plus1", # Default order
     [string]$PostPinText = "", # Custom text to append after each pin
     [string]$OutputFile = "4n_pin_codes.txt" # Default output file name
 )
@@ -116,7 +116,6 @@ $numericKeypad = @(
     @(7, 8, 9)
 )
 
-# Generate PIN codes
 $square = @()
 for ($row = 0; $row -lt 2; $row++) {
     for ($col = 0; $col -lt 2; $col++) {
@@ -124,6 +123,35 @@ for ($row = 0; $row -lt 2; $row++) {
         $reversedPin = $pin -replace "(.)(.)(.)(.)", '$4$3$2$1'  # Reverse the PIN
         $square += $pin, $reversedPin
     }
+}
+
+
+# Define the range of unique numbers (0-9)
+$uniqueNumbers = 0..9
+$3plus1 = @()  # Initialize an empty array to store the PINs
+
+# Loop through each unique number
+foreach ($uniqueNumber in $uniqueNumbers) {
+    # Loop through each possible PIN pattern (e.g., 1234, 2345, etc.)
+    for ($i = 0; $i -le 9; $i++) {
+        # Skip the iteration if $i is the same as $uniqueNumber
+        if ($i -eq $uniqueNumber) {
+            continue
+        }
+
+        # Generate the PIN by alternating between $uniqueNumber and $i
+        $pin = "$uniqueNumber$i$i$i"
+
+        # add it to the list
+        $3plus1 += $pin
+    }
+}
+
+# Loop through the PINs again to generate and add the reversed PINs at the end
+foreach ($pin in $3plus1) {
+    # Generate the reversed PIN and add it to the list
+    $reversedPin = $pin[3]+$pin[2]+$pin[1]+$pin[0]
+    $3plus1 += $reversedPin
 }
 
 # Create a hashtable for easy lookup
@@ -139,6 +167,7 @@ $pinCategories = @{
     "MMDD" = $datesmmdd
     "pairs" = $doubleUnder100
     "square" = $square
+    "3plus1" = $3plus1
 }
 
 # Combine numbers based on the order specified in $PinOrder
@@ -153,6 +182,7 @@ $PinOrder.Split(",") | ForEach-Object {
 $combinations = 0..9999 | ForEach-Object {
     "{0:D4}" -f $_
 }
+
 
 # Randomize the order of the non-easy numbers
 $nonEasyNumbers = $combinations | Where-Object {
