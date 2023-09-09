@@ -5,10 +5,10 @@
 # ||     \ \        / /                               .-,.--. . '            |   '      |  '|   |.--.|   '      |  '
 # ||  __  \ \      / /                          __    |  .-. || |            \    \     / / |   ||  |\    \     / /
 # ||/'__ '.\ \    / /            .--------.  .:--.'.  | |  | || |             `.   ` ..' /  |   ||  | `.   ` ..' /
-# |:/`  '. '\ \  / /             |____    | / |   \ | | |  | |. '                '-...-'`   |   ||  |    '-...-'`
-# ||     | | \ `  /                  /   /  `" __ | | | |  '-  \ '.          .              |   ||  |
-# ||\    / '  \  /                 .'   /    .'.''| | | |       '. `._____.-'/              |   ||__|
-# |/\'..' /   / /                 /    /___ / /   | |_| |         `-.______ /               '---'
+# |:/`  '. '\ \  / /             |____    | / |   \ | | | |  '-  \ '.          .              |   ||  |
+# ||     | | \ `  /                  /   /  `" __ | | | |       '. `._____.-'/              |   ||__|
+# ||\    / '  \  /                 .'   /    .'.''| | | |                  `
+# |/\'..' /   / /                 /    /___ / /   | |_| |                  `
 # '  `'-'`|`-' /                 |         |\ \._,\ '/|_|                  `
 #          '..'                  |_________| `--'  `"
 
@@ -125,7 +125,6 @@ for ($row = 0; $row -lt 2; $row++) {
     }
 }
 
-
 # Define the range of unique numbers (0-9)
 $uniqueNumbers = 0..9
 $3plus1 = @()  # Initialize an empty array to store the PINs
@@ -183,7 +182,6 @@ $combinations = 0..9999 | ForEach-Object {
     "{0:D4}" -f $_
 }
 
-
 # Randomize the order of the non-easy numbers
 $nonEasyNumbers = $combinations | Where-Object {
     $allNumbers -notcontains $_
@@ -200,17 +198,24 @@ if (-not [System.IO.Path]::IsPathRooted($OutputFile)) {
     $filePath = $OutputFile
 }
 
-# Write numbers to a file with the PostPinText appended
-$randomizedNumbers = @()
-foreach ($number in $allNumbers) {
-    if ($randomizedNumbers -notcontains $number) {
-        $randomizedNumbers += PostPin -pin $number -text $PostPinText
+# Check if the output file already exists
+if (Test-Path $filePath) {
+    # File exists, ask for confirmation before overwriting
+    $confirmation = Read-Host "The file '$filePath' already exists. Do you want to overwrite it? (Y/N)"
+    
+    # Check the user's response
+    if ($confirmation -eq "Y" -or $confirmation -eq "y") {
+        # User confirmed, proceed with overwriting
+        $randomizedNumbers | Out-File -FilePath $filePath -Force
+        Write-Host "File '$filePath' overwritten successfully."
+    }
+    else {
+        # User declined, do not overwrite
+        Write-Host "File '$filePath' was not overwritten."
     }
 }
-$randomizedNonEasyNumbers | ForEach-Object {
-    if ($randomizedNumbers -notcontains $_) {
-        $randomizedNumbers += PostPin -pin $_ -text $PostPinText
-    }
+else {
+    # File does not exist, proceed without confirmation
+    $randomizedNumbers | Out-File -FilePath $filePath
+    Write-Host "File '$filePath' created successfully."
 }
-
-$randomizedNumbers | Out-File -FilePath $filePath
