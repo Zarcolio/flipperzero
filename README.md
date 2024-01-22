@@ -7,7 +7,7 @@ Be sure to ⭐ this repo!
 Stuff for Bad USB (or Bad KB on [Xtreme](https://github.com/Flipper-XFW/Xtreme-Firmware)) on the Flipper Zero
 
 ## Ducky script/
-* `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen in your office? Fire this one off to open https://eyelockmyscreen.com in a full screen window.
+* `Defensive`/`EyeLock_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen in your office? Fire this one off to open https://eyelockmyscreen.com (or https://lock.nu) in a full screen window.
 * `Defensive`/`Phish_Office365_From_Usb.txt` - Creates a phishing page for Office 365. The email address is extracted via Outlook :) If the user hits the sign-in button, a message appears in red "You typed your password inside a phishing page because you did not lock your screen!"
 * `Defensive`/`Policy_Lock-Screen_Edge_Win.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open the company policy page and search for a specific control.
 * `Defensive`/`Show_wifi_passwords_Win_PS.txt` - Awareness script. Found an unlocked Windows screen? Fire this one off to open a Powershell window and show the user their wifi passwords.
