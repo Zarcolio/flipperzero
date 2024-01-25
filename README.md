@@ -18,6 +18,7 @@ Stuff for Bad USB (or Bad KB on [Xtreme](https://github.com/Flipper-XFW/Xtreme-F
 * `Offensive`/`Cookie-Facebook-WinChrome.txt` - Opens facebook.com within Chrome browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
 * `Offensive`/`Cookie-Facebook-WinDefaultBrowser.txt` - Opens facebook.com within the default browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
 * `Offensive`/`Cookie-Facebook-WinEdge.txt` - Opens facebook.com within Edge browser and alerts the document.cookie for Facebook. Use your imagination for offensive purposes.
+* `Offensive`/`Demo_Password_Reset.txt` - Opens a demo for a password reset. This why online services always should ask for the old password before resetting it and this is why you should lock your screen! Use your imagination for offensive purposes.
 * `Offensive`/`ExfilToUsb.txt` - Copies a folder recursively to an USB drive you bring along.
 * `Offensive`/`ExeFromUsb.txt` - Opens an executable from an USB drive you bring along.
 * `Offensive`/`Exfil-Default-Pwd-Windows.txt` - Steals DefaultPassword for automatic logon, exfils it via http://127.0.0.1 (edit this) and cleans up last opened MRU listing ("powershell"). Press button to close MS Edge.
