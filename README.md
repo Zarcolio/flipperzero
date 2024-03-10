@@ -32,7 +32,8 @@ Stuff for Bad USB (or Bad KB on [Xtreme](https://github.com/Flipper-XFW/Xtreme-F
 
 ## PowerShell/
 * `Offensive`/`Create-PwdDictAttack.ps1` - Creates a Ducky script that tries a list of passwords (or pincodes), for example against the Windows logon screen. Delay and wait time/method are configurable.
-* `Offensive`/`Generate-PinCodes.ps1` - Generates 4 number pin codes, easy to remember pin codes first.
+* `Offensive`/`Generate-4DigitPinCodes.ps1` - Generates all 4 number pin codes, easy to remember pin codes first.
+* `Offensive`/`Generate-6DigitPinCodes.ps1` - Generates easy to remember 6 number pin codes,very easy to remember pin codes first.
 * `Useful`/`Convert-Ps2Ducky.ps1` - Converts a .ps1 file to a Ducky script.
 * `Useful`/`Escape-DeadKeysAltcode.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (replaces STRING with ALTCODE if a dead key is detected).
 * `Useful`/`Escape-DeadKeysRepeat.ps1` - Changes a Ducky script to escape dead keys (~ ` ' ") on some keyboards (each dead key is repeated).
