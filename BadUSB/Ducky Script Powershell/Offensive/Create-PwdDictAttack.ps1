@@ -37,7 +37,11 @@ param(
     [switch]$PreventOverflow,
 
     [Parameter(Position=7, HelpMessage="Include ENTER key press at the end of the command.")]
-    [switch]$Enter
+    [switch]$Enter,
+
+	[Parameter(Position=8, HelpMessage="Optional custom DuckyScript commands to add after ENTER.")]
+	[string[]]$PostCommands
+
 )
 
 # Determine output folder and file path
@@ -57,6 +61,8 @@ Write-Verbose "Output file path: $OutputFile"
 New-Item -ItemType File -Path $OutputFile -Force -ErrorAction Stop | Out-Null
 Write-Verbose "Output file created successfully: $OutputFile"
 
+Add-Content -Path $OutputFile -Value "REM Command line: $($MyInvocation.Line)`r`n"
+
 # Read input file and convert to Ducky Script
 $Lines = Get-Content $InputFile
 foreach ($Line in $Lines) {
@@ -72,7 +78,7 @@ foreach ($Line in $Lines) {
         if ($Enter) {
             $command += "`r`nENTER"
         }
-        $command += "`r`n$WaitStr`r`n"
+        
         Add-Content -Path $OutputFile -Value $command
     }
     elseif ($PrintMode -eq "char") {
@@ -90,7 +96,7 @@ foreach ($Line in $Lines) {
         if ($Enter) {
             Add-Content -Path $OutputFile -Value "ENTER`r`n"
         }
-        
+
         Add-Content -Path $OutputFile -Value "DELAY $Wait"
         
         if ($PreventOverflow) {
@@ -100,5 +106,12 @@ foreach ($Line in $Lines) {
     else {
         Write-Error "Invalid value for PrintMode parameter. Supported values: 'string', 'char'."
     }
+	
+	if ($PostCommands) {
+	foreach ($cmd in $PostCommands) {
+		Add-Content -Path $OutputFile -Value "$cmd"
+		}
+	}
+	$command += "`r`n$WaitStr`r`n"
 }
 Write-Verbose "Conversion complete."
